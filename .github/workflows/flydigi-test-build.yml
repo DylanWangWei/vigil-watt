@@ -1,0 +1,28 @@
+name: Flydigi test build
+
+on:
+  push:
+    branches:
+      - build/flydigi-release-test
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+      - name: Publish Windows x64
+        run: dotnet publish src/VigilWatt.App -c Release -p:Platform=x64 -o publish
+      - name: Create portable archive
+        run: Compress-Archive -Path publish/* -DestinationPath VigilWatt-flydigi-test-win-x64.zip
+      - uses: actions/upload-artifact@v4
+        with:
+          name: VigilWatt-flydigi-test-win-x64
+          path: VigilWatt-flydigi-test-win-x64.zip
+          if-no-files-found: error
+          retention-days: 7
