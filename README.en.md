@@ -102,6 +102,7 @@ The table distinguishes devices verified on hardware from protocols implemented 
 | DELUX M900 Pro · passive 5-byte status | Implemented, off by default; same VID/PID as Inphic, receiver not seen here |
 | DualSense · passive Bluetooth HID | Implemented, on by default; contributor hardware only |
 | Haute42 Adapter 4DS (DualSense adapter) · read-only feature `0xF9` | Implemented, off by default; zero writes. Presents itself as a DualSense, identified by its firmware string. Contributor claim only |
+| Flydigi Vader 5 Pro · 2.4 GHz / wired `37D7:2401` | Implemented, off by default; enable Flydigi in settings. Battery is a seven-band estimate; not yet tested on hardware. See [flydigi.md](docs/hardware/flydigi.md) |
 | GANSS GS3104T-Pro / AULA F108 Pro · 33-byte query frame | Implemented, off by default; writes frames. Same HID fingerprint, one shared switch. Contributor hardware only |
 | MCHOSE V9 Pro / X9 headset · 64-byte query frame | Implemented, off by default; writes frames, shares the MCHOSE switch. V9 Pro verified by contributor, X9 contributor claim only |
 | MCHOSE A5 V2 Ultra · inverted Feature `0x11` query | Implemented, off by default; writes frames, shares the MCHOSE switch. Contributor claim only |

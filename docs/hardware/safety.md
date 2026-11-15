@@ -84,6 +84,7 @@
 | GANSS / 狼蛛 F108 | `PluginEnabled["Ganss"]` | **false** | 发固定查询帧才能读电量；两个品牌同指纹共用这一行开关；不进 15 秒发现，见 `ganss.md` §7 |
 | DualSense | 无（纯被动） | — | `WritesEnabled => false` + `ProbeWrites => false`；只读蓝牙 HID `054C:0CE6` |
 | Haute42 | `PluginEnabled["Haute42Gaming"]` | **false** | 只发 `HidD_GetFeature`（`0xF8` 固件串 / `0xFA` 芯片 ID / `0xF9` 电量），零写入；与 DualSense 插件按「USB / 蓝牙」互斥，见 `haute42.md` §5 |
+| 飞智 | `PluginEnabled["Flydigi"]` | **false** | 黑武士 5 Pro 每轮发一帧 GET_INFO 查询，见 `flydigi.md` §1 |
 | ATK | `PluginEnabled["Atk"]` | **false** | 鼠标发 17 字节 op 帧、键盘发 VIA `02 96 24`；两条链路共用一个开关，见 `atk.md` §5 §7。**唯一开了半开探活的插件**：`SupportsDiscoveryProbe` + `ProbeCooldown` 10s + `BreakerProbeInterval` 30s（`safety.md` §3 规则 3 ③） |
 | HyperX | 无（纯被动） | **true** | `WritesEnabled => false` + `ProbeWrites => false`；dongle 固件只实现 interrupt OUT，写帧一律 `ERROR_INVALID_FUNCTION`，只读 `FF90` 推送帧 |
 | 墨将 | `PluginEnabled["Mojhon"]` | **false** | `E2B7:122C` 厂商页 `0xFFAB` 只发官方助手实录里的只读帧 `A5 04 04`（电量+充电标志）与认领时一次的 `A5 04 E2`（型号标识）；`SupportsDiscoveryProbe` + `ProbeCooldown` 10s，见 `mojhon.md` §7 |
